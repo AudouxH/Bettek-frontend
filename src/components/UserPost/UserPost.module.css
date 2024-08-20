@@ -1,0 +1,51 @@
+.userPost {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 500px;
+  }
+  
+  .postContent {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 12px;
+  }
+  
+.postUserName {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+  .gameInfo {
+    margin-top: 12px;
+    padding: 12px;
+    background-color: #e0f7fa;
+    border-radius: 6px;
+  }
+  
+  .gameTitle {
+    font-size: 18px;
+    font-weight: 600;
+    color: #00796b;
+    margin-bottom: 8px;
+  }
+  
+  .finalScore, .gameStart {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .aftermath {
+    margin-top: 12px;
+    padding: 8px;
+    background-color: #ffeb3b;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #ff6f00;
+    text-align: center;
+  }

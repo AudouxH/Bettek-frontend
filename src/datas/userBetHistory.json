@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "user_id": 101,
+        "game_id": "GAME001",
+        "is_home_bet": true,
+        "is_won": true,
+        "odds": 1.75
+    },
+    {
+        "id": 2,
+        "user_id": 101,
+        "game_id": "GAME002",
+        "is_home_bet": false,
+        "is_won": false,
+        "odds": 2.2
+    },
+    {
+        "id": 3,
+        "user_id": 101,
+        "game_id": "GAME003",
+        "is_home_bet": true,
+        "is_won": true,
+        "odds": 1.6
+    },
+    {
+        "id": 4,
+        "user_id": 101,
+        "game_id": "GAME004",
+        "is_home_bet": false,
+        "is_won": true,
+        "odds": 2.8
+    },
+    {
+        "id": 5,
+        "user_id": 101,
+        "game_id": "GAME005",
+        "is_home_bet": true,
+        "is_won": null,
+        "odds": 1.9
+    },
+    {
+        "id": 6,
+        "user_id": 101,
+        "game_id": "GAME006",
+        "is_home_bet": false,
+        "is_won": true,
+        "odds": 2.4
+    },
+    {
+        "id": 7,
+        "user_id": 101,
+        "game_id": "GAME007",
+        "is_home_bet": true,
+        "is_won": false,
+        "odds": 1.7
+    },
+    {
+        "id": 8,
+        "user_id": 101,
+        "game_id": "GAME008",
+        "is_home_bet": false,
+        "is_won": null,
+        "odds": 3.0
+    },
+    {
+        "id": 9,
+        "user_id": 101,
+        "game_id": "GAME009",
+        "is_home_bet": true,
+        "is_won": true,
+        "odds": 2.0
+    },
+    {
+        "id": 10,
+        "user_id": 101,
+        "game_id": "GAME010",
+        "is_home_bet": false,
+        "is_won": false,
+        "odds": 2.6
+    }
+]

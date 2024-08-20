@@ -1,0 +1,66 @@
+[
+    {
+      "id": 1,
+      "game_id": "G-001",
+      "sport_id": "S-001",
+      "starts": "2024-08-20T18:30:00Z",
+      "home_team": "Team Alpha",
+      "away_team": "Team Beta",
+      "home_odds": 1.5,
+      "away_odds": 2.7,
+      "is_done": false
+    },
+    {
+      "id": 2,
+      "game_id": "G-002",
+      "sport_id": "S-002",
+      "starts": "2024-08-18T20:00:00Z",
+      "home_team": "Warriors",
+      "away_team": "Knights",
+      "home_odds": 1.8,
+      "away_odds": 2.2,
+      "is_done": true,
+      "home_won": true,
+      "home_score": 3,
+      "away_score": 1
+    },
+    {
+      "id": 3,
+      "game_id": "G-003",
+      "sport_id": "S-003",
+      "starts": "2024-08-21T14:00:00Z",
+      "home_team": "Dragons",
+      "away_team": "Phoenix",
+      "home_odds": 2.1,
+      "away_odds": 1.9,
+      "is_done": false
+    },
+    {
+      "id": 4,
+      "game_id": "G-004",
+      "sport_id": "S-001",
+      "starts": "2024-08-17T16:45:00Z",
+      "home_team": "Tigers",
+      "away_team": "Wolves",
+      "home_odds": 1.6,
+      "away_odds": 2.4,
+      "is_done": true,
+      "home_won": false,
+      "home_score": 2,
+      "away_score": 4
+    },
+    {
+      "id": 5,
+      "game_id": "G-005",
+      "sport_id": "S-002",
+      "starts": "2024-08-19T19:00:00Z",
+      "home_team": "Eagles",
+      "away_team": "Sharks",
+      "home_odds": 2.3,
+      "away_odds": 1.7,
+      "is_done": true,
+      "home_won": true,
+      "home_score": 5,
+      "away_score": 2
+    }
+  ]

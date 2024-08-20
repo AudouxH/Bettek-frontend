@@ -1,0 +1,42 @@
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profileImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    border: 2px solid #007bff;
+}
+
+.username {
+    font-size: 2rem;
+    color: #333;
+}
+
+.statsContainer {
+    width: 60%;
+}
+
+.averageOdd {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: #555;
+    width: 100%;
+}

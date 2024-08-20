@@ -1,0 +1,37 @@
+[
+    {
+      "id": 1,
+      "author_id": 101,
+      "post": "Just finished an epic match, can't believe we won!",
+      "game_id": "G-12345",
+      "aftermath": true
+    },
+    {
+      "id": 2,
+      "author_id": 102,
+      "post": "Trying out the new update, the graphics are amazing.",
+      "game_id": "G-67890",
+      "aftermath": false
+    },
+    {
+      "id": 3,
+      "author_id": 101,
+      "post": "Anyone up for a quick game? Need to relax a bit.",
+      "game_id": null,
+      "aftermath": false
+    },
+    {
+      "id": 4,
+      "author_id": 103,
+      "post": "Lost the last round, but it was so close!",
+      "game_id": "G-13579",
+      "aftermath": true
+    },
+    {
+      "id": 5,
+      "author_id": 104,
+      "post": "Exploring the open world in this game is incredible!",
+      "game_id": null,
+      "aftermath": false
+    }
+]

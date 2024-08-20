@@ -1,0 +1,21 @@
+.betItem {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 8px;
+    background-color: #f9f9f9;
+}
+
+.gameId {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.betDetails {
+    display: flex;
+    justify-content: space-between;
+}
+
+.betDetails div {
+    margin-right: 16px;
+}
