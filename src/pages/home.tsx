@@ -19,13 +19,12 @@ export default function Home() {
   }, [userToken, router]);
 
   useEffect(() => {
-    const getUsersPosts = async () => {
-      const listOfPosts: any = await getPostFeed();
-      console.log("list of post:", listOfPosts?.data);
-      listOfPosts != undefined && listOfPosts != null && listOfPosts.data != null && setUsersPosts(listOfPosts.data);
+    const getUsersPosts = async (token: string) => {
+      const listOfPosts: any = await getPostFeed(token);
+      listOfPosts != undefined && listOfPosts != null && setUsersPosts(listOfPosts);
     }
-    (usersPosts == null || usersPosts == undefined) && getUsersPosts();
-  }, [getPostFeed, usersPosts]);
+    (usersPosts == null || usersPosts == undefined) && userToken != undefined && getUsersPosts(userToken);
+  }, [getPostFeed, usersPosts, userToken]);
 
   return (
     <>
@@ -37,14 +36,15 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <NavigationBar />
-        <div className={styles.userPostContainer}>
-          {usersPosts != undefined && usersPosts != null && usersPosts.length > 0 ?
-            usersPosts.map((post: IUserPost) => {
-            return (
-              <UserPost post={post} key={post.id} />
-            )})
-            : null}
-        </div>
+        <div className={styles.profileContainer}>
+            {usersPosts && usersPosts.length > 0 ? (
+              usersPosts.map((post: IUserPost) => (
+                <UserPost post={post} key={post.id} />
+              ))
+            ) : (
+              <p>No posts found</p>
+            )}
+          </div>
       </main>
     </>
   );

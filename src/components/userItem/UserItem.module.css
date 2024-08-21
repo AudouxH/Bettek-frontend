@@ -1,0 +1,59 @@
+.userInfo {
+    display: flex;
+    align-items: center;
+    min-width: 400px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .userInfo:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .userInfo img {
+    border-radius: 50%;
+    margin-right: 12px;
+  }
+  
+  .userName {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: 500;
+    margin: 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .userName:hover {
+    color: #0070f3;
+  }
+
+  .addFriend {
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  margin-left: auto;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.addFriend:hover {
+  background-color: #005bb5;
+  transform: scale(1.05);
+}
+
+.friendAdded {
+  font-size: 0.95em;
+  color: #28a745;
+  font-weight: 500;
+  margin-left: auto;
+}

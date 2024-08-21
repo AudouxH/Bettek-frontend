@@ -6,6 +6,7 @@ import Register from "./register";
 import Home from "./home";
 import Profil from "./profil/[user_id]";
 import Games from "./games";
+import Friends from "./friends";
 
 export default function App() {
   const router = useRouter();
@@ -17,6 +18,7 @@ export default function App() {
       {router.pathname === '/home' && <Home />}
       {router.pathname.startsWith('/profil') && <Profil />}
       {router.pathname === '/games' && <Games />}
+      {router.pathname === '/friends' && <Friends />}
     </UserProvider>
   );
 }

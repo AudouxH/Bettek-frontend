@@ -17,7 +17,7 @@ const PostPopup: React.FC<PostPopupProps> = ({ gameId, onClose }) => {
         if (userToken == undefined || userToken == null) {
             return;
         }
-        const betResult = await addUserPost(gameId, postContent, userToken);
+        const betResult = await addUserPost(postContent, gameId, userToken);
         console.log("betResult:", betResult);
         onClose();
     };

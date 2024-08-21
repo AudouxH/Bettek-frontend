@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f5f5f5;
+    background-color: black;
 }
 
 .userPostContainer {
@@ -11,5 +11,20 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 10px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.profileContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.profileHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }

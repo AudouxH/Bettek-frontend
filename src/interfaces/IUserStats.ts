@@ -4,7 +4,7 @@ export default interface IUserStats {
     user_id: number;
     win_ratio: number;
     total_bets: number;
-    average_odd: number;
-    totalLosses: number;
-    totalWins: number;
+    average_odds: number;
+    total_lost: number;
+    total_won: number;
 }

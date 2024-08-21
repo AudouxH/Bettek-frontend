@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default function useFetchBackendData() {
     const isLocalData = false;
-    const backendURL = isLocalData ? "http://localhost:8888/" : "https://bettek.prophecy-eip.com/api/";
+    const backendURL = isLocalData ? "http://localhost:8888/" : "https://bettek.up.railway.app/";
 
     // USER PART -----------------------------------------------------------------------------
     
@@ -13,7 +13,7 @@ export default function useFetchBackendData() {
                 password
             });
             console.log("register data", response.data);
-            return(response);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -26,7 +26,7 @@ export default function useFetchBackendData() {
                 password
             });
             console.log("login data", response.data);
-            return(response);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -43,7 +43,7 @@ export default function useFetchBackendData() {
                 }
             );
             console.log("user data", response.data);
-            return(response);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -60,7 +60,7 @@ export default function useFetchBackendData() {
                 }
             );
             console.log("user friends stats data", response.data);
-            return(response);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -68,16 +68,14 @@ export default function useFetchBackendData() {
 
     const addUserBet = async (game_id: string, userToken: string, is_home_bet: boolean) => {
         try {
-            const bets: any = await axios.post(backendURL + 'game/' + game_id + "/bet", {
-                game_id,
-                is_home_bet
-            }, {
-                headers: {
-                    'Authorization': `Bearer ${userToken}`,
-                    'Content-Type': 'application/json'
+            const response: any = await axios.post(backendURL + 'game/' + game_id + "/bet?is_home_bet=" + is_home_bet, {}, {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
                 }
-            });
-            return(bets);
+            );
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -85,7 +83,7 @@ export default function useFetchBackendData() {
 
     const addUserPost = async (post: string, game_id: string, userToken: string) => {
         try {
-            const bets: any = await axios.post(backendURL + 'post', {
+            const response: any = await axios.post(backendURL + 'post', {
                 post,
                 game_id
             }, {
@@ -94,7 +92,7 @@ export default function useFetchBackendData() {
                     'Content-Type': 'application/json'
                 }
             });
-            return(bets);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -102,14 +100,14 @@ export default function useFetchBackendData() {
 
     const addUserFriend = async (friendID: string, userToken: string) => {
         try {
-            const bets: any = await axios.post(backendURL + 'friend/' + friendID,
+            const response: any = await axios.post(backendURL + 'friend/' + friendID, {},
             {
                 headers: {
                     'Authorization': `Bearer ${userToken}`,
                     'Content-Type': 'application/json'
                 }
             });
-            return(bets);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -117,66 +115,108 @@ export default function useFetchBackendData() {
 
     // HOME PART -----------------------------------------------------------------------------
 
-    const getPostFeed = async () => {
+    const getPostFeed = async (userToken: string) => {
         try {
-            const response: any = await axios.get(backendURL + 'feed');
+            const response: any = await axios.get(backendURL + 'feed',
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
             console.log("post feed response", response.data);
-            return(response);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
     };
 
-    const getGamesFeed = async () => {
+    const getGamesFeed = async (userToken: string) => {
         try {
-            const response: any = await axios.get(backendURL + 'games');
+            const response: any = await axios.get(backendURL + 'games',
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
             console.log("game feed response", response.data);
-            return(response);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
     }
 
-    const getAllBets = async () => {
+    const getAllBets = async (userToken: string) => {
         try {
-            const bets: any = await axios.get(backendURL + 'bets');
-            return(bets);
+            const response: any = await axios.get(backendURL + 'bets',
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
     }
 
-    const getAllGames = async () => {
+    const getAllGames = async (userToken: string) => {
         try {
-            const bets: any = await axios.get(backendURL + 'fetch_games');
-            return(bets);
+            const response: any = await axios.get(backendURL + 'fetch_games',
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
     }
 
-    const getAllUsers = async () => {
+    const getAllUsers = async (userToken: string) => {
         try {
-            const bets: any = await axios.get(backendURL + 'users');
-            return(bets);
+            const response: any = await axios.get(backendURL + 'users',
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
     }
 
-    const getGameDatas = async (game_id: string) => {
+    const getGameDatas = async (game_id: string, userToken: string) => {
         try {
-            const bets: any = await axios.get(backendURL + 'game/' + game_id);
-            return(bets);
+            const response: any = await axios.get(backendURL + 'game/' + game_id,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
     }
 
-    const getGameResult = async (game_id: string, sport_id: string) => {
+    const getGameResult = async (game_id: string, sport_id: string, userToken: string) => {
         try {
-            const bets: any = await axios.get(backendURL + 'result/' + sport_id + '/' + game_id);
-            return(bets);
+            const response: any = await axios.get(backendURL + 'result/' + sport_id + '/' + game_id,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -185,31 +225,65 @@ export default function useFetchBackendData() {
 
     // PROFIL PART -----------------------------------------------------------------------------
 
-    const getProfilData = async (user_id: string) => {
+    const getProfilData = async (user_id: string, userToken: string) => {
         try {
-            const response: any = await axios.get(backendURL + 'user/' + user_id);
+            const response: any = await axios.get(backendURL + 'user/' + user_id,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
             console.log("profil data", response.data);
-            return(response);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
     };
 
-    const getUserBets = async (user_id: string) => {
+    const getUserBets = async (user_id: string, userToken: string) => {
         try {
-            const response: any = await axios.get(backendURL + 'user/' + user_id + '/bets');
+            const response: any = await axios.get(backendURL + 'user/' + user_id + '/bets',
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
             console.log("profil bets", response.data);
-            return(response);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
     }
 
-     const getUserPost = async (user_id: string) => {
+     const getUserPost = async (user_id: string, userToken: string) => {
         try {
-            const response: any = await axios.get(backendURL + 'user/' + user_id + '/posts');
+            const response: any = await axios.get(backendURL + 'user/' + user_id + '/posts',
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
             console.log("profil posts", response.data);
-            return(response);
+            return(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const getUserFriend = async (user_id: string, userToken: string) => {
+        try {
+            const response: any = await axios.get(backendURL + 'friends/' + user_id,
+                {
+                    headers: {
+                        'Authorization': `Bearer ${userToken}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            console.log("profil posts", response.data);
+            return(response.data);
         } catch (error) {
             console.log(error);
         }
@@ -232,6 +306,7 @@ export default function useFetchBackendData() {
         getAllGames,
         getGameDatas,
         getGameResult,
-        getAllUsers
+        getAllUsers,
+        getUserFriend
     };
 }

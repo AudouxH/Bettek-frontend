@@ -19,12 +19,12 @@ export default function Games() {
   }, [userToken, router]);
 
   useEffect(() => {
-    const getGamesPosts = async () => {
-      const listOfPosts: any = await getGamesFeed();
-      listOfPosts != undefined && setGamesFeed(listOfPosts?.data);
+    const getGamesPosts = async (token: string) => {
+      const listOfPosts: any = await getGamesFeed(token);
+      listOfPosts != undefined && setGamesFeed(listOfPosts);
     }
-    getGamesPosts();
-  }, [getGamesFeed]);
+    (gamesFeed == null || gamesFeed == undefined) && userToken != undefined && getGamesPosts(userToken);
+  }, [getGamesFeed, gamesFeed]);
 
   return (
     <>
@@ -36,7 +36,6 @@ export default function Games() {
       </Head>
       <main className={styles.main}>
         <NavigationBar />
-        <h1>Games</h1>
         <div className={styles.gamePostContainer}>
           {gamesFeed != undefined && gamesFeed != null && gamesFeed.length > 0 ?
             gamesFeed.map((game: IGamePost) => {

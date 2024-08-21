@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from './BetPopUp.module.css';
 import { useUser } from "@/contexts/userContext";
 import fetchBackendData from "@/hooks/fetchBackendData";
+import IGamePost from "@/interfaces/IGamePost";
+import useFetchBackendData from "@/hooks/fetchBackendData";
 
 interface BetPopupProps {
     gameId: string;
@@ -10,11 +12,9 @@ interface BetPopupProps {
 
 const BetPopup: React.FC<BetPopupProps> = ({ gameId, onClose }) => {
     const [isHomeBet, setIsHomeBet] = useState<boolean>(true);
-    const [homeTeam, setHomeTeam] = useState<string>("Lakers");
-    const [awayTeam, setAwayTeam] = useState<string>("Bulls");
-    const [homeOdds, setHomeOdds] = useState<number>(2.5);
-    const [awayOdds, setAwayOdds] = useState<number>(3.2);
+    const [gamePost, setGamePost] = useState<IGamePost | undefined>(undefined);
     const { userToken } = useUser();
+    const { getGameDatas } = useFetchBackendData();
     const { addUserBet } = fetchBackendData();
 
     const handleTeamSelect = (isHome: boolean) => {
@@ -29,6 +29,15 @@ const BetPopup: React.FC<BetPopupProps> = ({ gameId, onClose }) => {
         console.log("betResult:", betResult);
         onClose();
     };
+    
+    useEffect(() => {
+        const getAllPostDatas = async (game_id: string, token: string) => {
+          const gameData: IGamePost = await getGameDatas(game_id, token);
+          console.log("game data inside user post:", gameData);
+          setGamePost(gameData);
+        }
+        gameId != undefined && gameId != null && userToken != undefined && getAllPostDatas(gameId, userToken);
+      }, [gameId]);
 
     return (
         <div className={styles.overlay}>
@@ -37,10 +46,10 @@ const BetPopup: React.FC<BetPopupProps> = ({ gameId, onClose }) => {
                 <p className={styles.subtitle}>Select a team to bet on:</p>
                 <div className={styles.teams}>
                     <button className={isHomeBet ? styles.activeButton : styles.button} onClick={() => handleTeamSelect(true)}>
-                        {homeTeam} (Odds: {homeOdds})
+                        {gamePost?.home_team} (Odds: {gamePost?.home_odds})
                     </button>
                     <button className={!isHomeBet ? styles.activeButton : styles.button} onClick={() => handleTeamSelect(false)}>
-                        {awayTeam} (Odds: {awayOdds})
+                        {gamePost?.away_team} (Odds: {gamePost?.away_odds})
                     </button>
                 </div>
                 <div className={styles.actions}>

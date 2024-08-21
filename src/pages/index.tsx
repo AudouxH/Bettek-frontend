@@ -5,24 +5,28 @@ import useLocalStorage from "@/hooks/useLocalStorage";
 import { useRouter } from "next/router";
 import fetchBackendData from "@/hooks/fetchBackendData";
 import { useUser } from "@/contexts/userContext";
+import IUserStats from "@/interfaces/IUserStats";
 
 export default function Login() {
     const [formUserName, setFormUserName] = useState<string | undefined>(undefined);
     const [formPassWord, setFormPassWord] = useState<string | undefined>(undefined);
     const { localStorageData, localReadingData } = useLocalStorage();
-    const { loginUser } = fetchBackendData();
+    const { loginUser, getUserData } = fetchBackendData();
     const { userToken, setUserName, setUserToken, setUserID } = useUser();
     const router = useRouter();
 
     const logUser = async () => {
       if (formUserName != null && formUserName != undefined && formPassWord != null && formPassWord != undefined) {
         const response: any = await loginUser(formUserName, formPassWord);
-        if (response?.data?.access_token != null && response?.data?.access_token != undefined) {
+        const userData: IUserStats = await getUserData(response?.access_token);
+        if (response?.access_token != null && response?.access_token != undefined && userData?.id != undefined && userData?.id != null) {
+            console.log("user data id:", userData.id);
             setUserName(formUserName);
-            setUserToken(response.data.access_token);
-            localStorageData("userToken", response.data.access_token);
+            setUserID(parseInt(userData.id));
+            setUserToken(response.access_token);
+            localStorageData("userToken", response.access_token);
             localStorageData("userName", formUserName);
-            localStorageData("userID", "6");
+            localStorageData("userID", userData.id);
             router.push("/home");
         }
       }
