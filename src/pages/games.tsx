@@ -43,7 +43,7 @@ export default function Games() {
                     <GamePost game={game} key={game.id} />
                 )
         })
-            : <p>No feed founded</p>}
+            : <p className={styles.emptyList}>No games founded</p>}
         </div>
       </main>
     </>

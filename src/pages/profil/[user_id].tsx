@@ -123,7 +123,7 @@ export default function Profil() {
                 <UserItem user={user} key={user.id}/>
               ))
             ) : (
-              <p>No bets found</p>
+              <p className={styles.emptyList}>No friends found</p>
             )}
           </div>
 
@@ -133,7 +133,7 @@ export default function Profil() {
                 <BetHistory bet={bet} key={bet.id} />
               ))
             ) : (
-              <p>No bets found</p>
+              <p className={styles.emptyList}>No bets found</p>
             )}
           </div>
 
@@ -143,7 +143,7 @@ export default function Profil() {
                 <UserPost post={post} key={post.id} />
               ))
             ) : (
-              <p>No posts found</p>
+              <p className={styles.emptyList}>No posts found</p>
             )}
           </div>
         </div>

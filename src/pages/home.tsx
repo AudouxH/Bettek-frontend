@@ -42,7 +42,7 @@ export default function Home() {
                 <UserPost post={post} key={post.id} />
               ))
             ) : (
-              <p>No posts found</p>
+              <p className={styles.emptyList}>No posts found</p>
             )}
           </div>
       </main>

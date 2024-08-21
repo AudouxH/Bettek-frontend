@@ -1,3 +1,11 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
 .buttonsContainer {
   display: flex;
   flex-direction: column;
@@ -5,12 +13,20 @@
   margin-top: 20px;
 }
 
+
+.emptyList {
+  font-size: 20px;
+  color: gray;
+  text-align: center;
+}
+
 .postButton {
   width: 100%;
   padding: 10px 0;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+    cursor: pointer;
   font-size: 16px;
   color: white;
 }

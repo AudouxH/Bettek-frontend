@@ -19,32 +19,38 @@
 
 .team {
   text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .team p {
   font-size: 20px;
   font-weight: bold;
-  color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
 }
 
 .vsContainer {
-  text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 .versus {
-  color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
   font-size: 20px;
 }
 
 .countdown {
-  margin-top: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 8px;
   font-size: 14px;
   color: #888;
 }
 
 .odds {
   margin-top: 4px;
-  font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
   color: #555;
 }
 
@@ -61,14 +67,16 @@
 .result {
   font-size: 18px;
   font-weight: bold;
-  margin-left: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
   margin-right: 10px;
   color: #333;
 }
 
 .winner {
   margin-top: 10px;
-  font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
   color: #666;
   text-align: center;
 }
@@ -76,7 +84,7 @@
 .buttonsContainer {
   display: flex;
   flex-direction: column;
-  gap: 15px; /* Espace entre les boutons */
+  gap: 15px;
   margin-top: 20px;
 }
 
@@ -86,7 +94,8 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
   color: white;
 }
 

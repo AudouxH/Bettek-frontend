@@ -23,8 +23,16 @@
   padding: 20px;
 }
 
+
+.emptyList {
+  font-size: 20px;
+  color: gray;
+  text-align: center;
+}
+
 .profileHeader {
   display: flex;
-  align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
   margin-bottom: 20px;
 }

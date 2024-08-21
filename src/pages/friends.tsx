@@ -106,7 +106,7 @@ export default function Friends() {
                     <UserItem user={user} key={user.id.toString()} />
                 )
         })
-            : <p>No users founded</p>}
+            : <p className={styles.emptyList}>No users founded</p>}
         </div>
       </main>
     </>
