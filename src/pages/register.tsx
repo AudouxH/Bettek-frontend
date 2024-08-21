@@ -23,6 +23,7 @@ export default function Register() {
         
         try {
             const response: any = await registerUser(formUserName, formPassWord1);
+            console.log("res from registration:", response);
             if (response != null && response != undefined && response.name != null && response.id != null) {
                 setUserName(response.name);
                 setUserID(response.id);
@@ -72,11 +73,11 @@ export default function Register() {
           
           {userName && userID ? <>
           <p className={styles.success}>User created successfully! please log in</p>
-          <button onClick={handleUserClick} className={styles.button}>
+          <button onClick={() => router.push('/')} className={styles.button}>
             Login
           </button>
           </> :
-          <button onClick={() => router.push('/')} className={styles.button}>
+          <button onClick={handleUserClick} className={styles.button}>
           Register
           </button>
           }
