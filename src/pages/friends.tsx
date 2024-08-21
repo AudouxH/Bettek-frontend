@@ -13,10 +13,11 @@ import IFriendsStats from "@/interfaces/IFriendsStats";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function Friends() {
-  const { userToken } = useUser();
-  const { getAllUsers, getUserFriendsStats } = useFetchBackendData();
+  const { userToken, userID } = useUser();
+  const { getAllUsers, getUserFriendsStats, getUserFriend } = useFetchBackendData();
   const [users, setUsers] = useState<IUser[] | undefined>(undefined);
   const [friendsStats, setFriendsStats] = useState<IFriendsStats | undefined>(undefined);
+  const [profilFriends, setProfilFriends] = useState<IUser[] | undefined>(undefined);
   const test: IFriendsStats = {total_bets: 3, total_won: 2, total_lost: 1, win_ratio: 0.66, average_odds: 3.5, friends: [{ id: 14, name: "john"}]};
 
   useEffect(() => {
@@ -30,15 +31,19 @@ export default function Friends() {
   }, [users, userToken, setUsers]);
 
   useEffect(() => {
-    const getFriendsStats = async (token: string) => {
+    const getFriendsStats = async (token: string, user_id: string) => {
         const stats = await getUserFriendsStats(token);
+        const friends: IUser[] = await getUserFriend(user_id, token);
+        setProfilFriends(friends);
         console.log('user friends stats:', stats);
         stats != null && stats != undefined && setFriendsStats(stats);
         (stats == null || stats == undefined) && setFriendsStats(test);
     }
     console.log("users:", users);
-    (friendsStats == null || friendsStats == undefined) && userToken != undefined && getFriendsStats(userToken);
+    (friendsStats == null || friendsStats == undefined) && userToken != undefined && userID != undefined && getFriendsStats(userToken, userID.toString());
   }, [friendsStats, userToken, setFriendsStats]);
+
+  const friendIds = profilFriends ? profilFriends.map(friend => friend.id) : [];
 
 
   const pieData = {
@@ -102,10 +107,12 @@ export default function Friends() {
           ) : null}
         <div className={styles.gamePostContainer}>
           <p className={styles.titleNewUsers}>Find new users</p>
-          {users != undefined && users != null && users.length > 0 ?
-            users.map((user: IUser) => {
+          {users != undefined && profilFriends != undefined && users.length > 0 ?
+          users
+          .filter(user => !friendIds.includes(user.id))
+          .map((user: IUser) => {
                 return (
-                    <UserItem user={user} key={user.id.toString()} />
+                    <UserItem user={user} key={user.id.toString()} isAlreadyFriend={false}/>
                 )
         })
             : <p className={styles.emptyList}>No users founded</p>}

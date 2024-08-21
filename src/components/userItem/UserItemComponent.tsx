@@ -8,9 +8,10 @@ import { useUser } from '@/contexts/userContext';
 
 interface UserPostProps {
   user: IUser;
+  isAlreadyFriend: boolean;
 }
 
-const UserItem: React.FC<UserPostProps> = ({ user }) => {
+const UserItem: React.FC<UserPostProps> = ({ user, isAlreadyFriend }) => {
   const router = useRouter();
   const { addUserFriend } = useFetchBackendData();
   const { userToken } = useUser();
@@ -32,7 +33,7 @@ const UserItem: React.FC<UserPostProps> = ({ user }) => {
           <Avvvatars value={user.name ?? 'test'} style="shape" />
           <p onClick={() => user != undefined && user.id != undefined && router.push("/profil/" + user.id.toString())} className={styles.userName}>{user.name}</p>
           {
-            !isAdded ? 
+            !isAdded && !isAlreadyFriend? 
               <button onClick={async () => handleAddFriend()} className={styles.addFriend}>add Friend</button> :
               <p className={styles.friendAdded}>friend successfully added</p>
           }

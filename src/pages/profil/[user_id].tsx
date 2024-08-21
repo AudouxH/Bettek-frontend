@@ -120,7 +120,7 @@ export default function Profil() {
           <div className={styles.profilFriends}>
             {profilFriends && profilFriends.length > 0 ? (
               profilFriends.map((user: IUser) => (
-                <UserItem user={user} key={user.id}/>
+                <UserItem user={user} key={user.id} isAlreadyFriend/>
               ))
             ) : (
               <p className={styles.emptyList}>No friends found</p>
